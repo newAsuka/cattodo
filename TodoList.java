@@ -5,17 +5,18 @@ public class TodoList {
   static String welcomStat = "Hi,Kerrigan,here is your to-do list:";
 
   public static void main(String[] args) {
-    List<String> todoList = new ArrayList<>();
-    todoList.add("1....");
-    todoList.add("2....");
-    todoList.add("3....");
-    todoList.add("4....");
-    todoList.add("5....");
+  	// Note this list is fix-sized, you cann't add new items into it.
+    List<String> todoList = Arrays.asList(
+    	"1...",
+    	"2...",
+    	"3...",
+    	"4...",
+    	"5...");
 
     System.out.println(welcomStat);
 
-    for(int index = 0; index < todoList.size(); index++) {
-      System.out.println(todoList.get(index));
+    for (String item : todoList) {
+    	System.out.println(item);
     }
   }
 }
