@@ -13,9 +13,8 @@ public class tryInput {
     	"4...",
     	"5...");*/
    
-    String[] items = {"1...","2...","3...","4...","5..."};
-    List<String> newList = Arrays.asList(items);
-    List<String> todoList = new ArrayList<String>(newList);
+    List<String> todoList = new ArrayList<>(
+    	Arrays.asList({"1...","2...","3...","4...","5..."}));
     todoList.add("new item");
     
 
