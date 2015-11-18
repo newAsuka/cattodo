@@ -21,17 +21,20 @@ public class TodoList {
 // 2. Correct condition - exit loop / incorrect condition - loop for input
 // 3. Off-by-one: [1, 5]  [1, 5): always use 0-based internally.
 
-  public void setStatus(int index) {
+// 4. Move happy path out of while loop
+
+  public void markAsDone(int index) {
     int i = index - 1; // [1, 5] -> [0, 5)
     while (!(index>=0 && index<todoList.size())) {
-        if todoList.[index].endWith("DONE") {
-          return;
-        }
-        else {
-          todoList.[index] = todoList.[index+1].concat(status.toString())
-        };
-        System.out.println("must between 1-5");
-        //waiting for input
+      //waiting for input
+      System.out.println("must between 1-5");
+      // TODO(...)
+    }
+
+    if (todoList[index].endWith("DONE")) {
+      return;
+    } else {
+      todoList[index] = todoList[index] + "DONE";
     }
 }
 
