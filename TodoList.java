@@ -12,11 +12,7 @@ public class TodoList {
     System.out.println(welcomStat);
     List<String> todos = new ArrayList<>(
         Arrays.asList("1...","2...","3...","4...","5..."));
-    todoList = (ArrayList<String>)todos;
-
-    for (String item : todoList) {
-      System.out.println(item);
-    }
+    todoList = (ArrayList<String>)todos;    
   }
   
 // 1. && and,  || or
@@ -29,17 +25,17 @@ public class TodoList {
     if (!todoList.get(index).endsWith("DONE")) {
        todoList.set(index, todoList.get(index) + "DONE");
     }
-    
-    for(String todos : todoList) {
-        System.out.println(todos);
-    }
-
   }
 
+  public void printList() {
+        for (String item : todoList) {
+          System.out.println(item);
+        }
+  }
   
-
   public static void main(String[] args) {
     TodoList myTodoList = new TodoList();
+    myTodoList.printList();
     /*System.out.println("mark one as DONE");
     Scanner sc = new Scanner(System.in);
     myTodoList.markAsDone(sc.nextInt());*/
@@ -52,6 +48,8 @@ public class TodoList {
       Scanner sc = new Scanner(System.in);
       int index = sc.nextInt() - 1;
       myTodoList.markAsDone(index);
+      myTodoList.printList();
+
     } while (true);
 
 
