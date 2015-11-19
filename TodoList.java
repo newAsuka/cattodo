@@ -8,10 +8,11 @@ public class TodoList {
   static String welcomStat = "Hi,Kerrigan,here is your to-do list:";
   private ArrayList<String> todoList ;
 
-  public void TodoList () {
+  public TodoList () {
     System.out.println(welcomStat);
-    List<String> todoList = new ArrayList<>(
+    List<String> todos = new ArrayList<>(
         Arrays.asList("1...","2...","3...","4...","5..."));
+    todoList = (ArrayList<String>)todos;
 
     for (String item : todoList) {
       System.out.println(item);
@@ -25,14 +26,14 @@ public class TodoList {
 // 4. Move happy path out of while loop
 
   public void markAsDone(int index) {
-    if (todoList.get(index).endsWith("DONE")) {
-      return;
-    } else {
-      todoList.set(index, todoList.get(index) + "DONE");
-      for(String todos : todoList) {
-        System.out.println(todos);
-      }
+    if (!todoList.get(index).endsWith("DONE")) {
+       todoList.set(index, todoList.get(index) + "DONE");
     }
+    
+    for(String todos : todoList) {
+        System.out.println(todos);
+    }
+
   }
 
   
@@ -45,11 +46,11 @@ public class TodoList {
 
     do {
       System.out.println("mark one as DONE");
-      String hint = String.format("input from 0 ~ %s", myTodoList.todoList.size());
+      String hint = String.format("input from 1 ~ %s", myTodoList.todoList.size());
       System.out.println(hint);
 
       Scanner sc = new Scanner(System.in);
-      int index = sc.nextInt();
+      int index = sc.nextInt() - 1;
       myTodoList.markAsDone(index);
     } while (true);
 
