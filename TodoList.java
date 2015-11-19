@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
+import java.util.Arrays;
 
 public class TodoList {
   
@@ -9,7 +11,7 @@ public class TodoList {
   public void TodoList () {
     System.out.println(welcomStat);
     List<String> todoList = new ArrayList<>(
-        Array.asList("1...","2...","3...","4...","5..."));
+        Arrays.asList("1...","2...","3...","4...","5..."));
 
     for (String item : todoList) {
       System.out.println(item);
@@ -23,10 +25,10 @@ public class TodoList {
 // 4. Move happy path out of while loop
 
   public void markAsDone(int index) {
-    if (todoList[index].endWith("DONE")) {
+    if (todoList.get(index).endsWith("DONE")) {
       return;
     } else {
-      todoList[index] = todoList[index] + "DONE";
+      todoList.set(index, todoList.get(index) + "DONE");
       for(String todos : todoList) {
         System.out.println(todos);
       }
@@ -43,7 +45,7 @@ public class TodoList {
 
     do {
       System.out.println("mark one as DONE");
-      String hint = String.format("input from 0 ~ %s", myTodoList.size());
+      String hint = String.format("input from 0 ~ %s", myTodoList.todoList.size());
       System.out.println(hint);
 
       Scanner sc = new Scanner(System.in);
