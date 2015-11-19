@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class TodoList {
   
   static String welcomStat = "Hi,Kerrigan,here is your to-do list:";
-  private Boolean status = true;
   private ArrayList<String> todoList ;
 
   public void TodoList () {
@@ -24,37 +23,40 @@ public class TodoList {
 // 4. Move happy path out of while loop
 
   public void markAsDone(int index) {
-    int i = index - 1; // [1, 5] -> [0, 5)
-    while (!(index>=0 && index<todoList.size())) {
-      //waiting for input
-      System.out.println("must between 1-5");
-      // TODO(...)
-    }
-
     if (todoList[index].endWith("DONE")) {
       return;
     } else {
       todoList[index] = todoList[index] + "DONE";
+      for(String todos : todoList) {
+        System.out.println(todos);
+      }
     }
-}
-
-  public void String getStatus(int index){
-
   }
+
+  
+
+  public static void main(String[] args) {
+    TodoList myTodoList = new TodoList();
+    /*System.out.println("mark one as DONE");
+    Scanner sc = new Scanner(System.in);
+    myTodoList.markAsDone(sc.nextInt());*/
+
+    do {
+      System.out.println("mark one as DONE");
+      String hint = String.format("input from 0 ~ %s", myTodoList.size());
+      System.out.println(hint);
+
+      Scanner sc = new Scanner(System.in);
+      int index = sc.nextInt();
+      myTodoList.markAsDone(index);
+    } while (true);
+
+
+      
+  }
+
+}
 
 
 
   
-}
-
-public class markAsDone {
-  public static void main(String[] args) {
-
-    
-      
-
-
-    
-    }
-  }
-}
